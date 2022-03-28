@@ -9,7 +9,7 @@ namespace ProjectEuler.Problems
             get
             {
                 var name = GetType().Name;
-                return name[^1].ToString();
+                return name.Replace("Problem", string.Empty);
             }
         }
         public abstract string Name { get; }
