@@ -19,7 +19,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.";
                 for (int j = 999; j > 0; j--)
                 {
                     var number = i * j;
-                    if (IsPalindrome(number))
+                    if (Helper.IsPalindrome(number))
                     {
                         palindromes.Add(number);
                     }
@@ -27,12 +27,6 @@ Find the largest palindrome made from the product of two 3-digit numbers.";
             }
 
             return palindromes.Max().ToString();
-        }
-
-        private static bool IsPalindrome(int number)
-        {
-            var numberAsString = number.ToString();
-            return numberAsString.SequenceEqual(numberAsString.Reverse());
         }
     }
 }
