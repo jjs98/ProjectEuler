@@ -1,16 +1,17 @@
-﻿using System.ComponentModel.Composition;
+﻿using ProjectEuler.Problems.Interfaces;
+using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Text;
 
 namespace ProjectEuler
 {
-    internal class Problems
+    internal class ProblemSolver
     {
         [ImportMany(typeof(IProblem))]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0044:Add readonly modifier", Justification = "Needs to be set in CompositionContainer")]
         private List<IProblem>? problems = null;
 
-        public void SolveProblems()
+        public async void SolveProblems()
         {
             var catalog = new DirectoryCatalog(".");
             var container = new CompositionContainer(catalog);
@@ -21,20 +22,25 @@ namespace ProjectEuler
 
             foreach (IProblem problem in problems)
             {
-                var sb = new StringBuilder();
+                await Task.Run(() =>
+                {
+                    var solution = problem.Solve();
 
-                sb.AppendLine($"Problem {problem.Number}: {problem.Name}");
-                sb.AppendLine();
+                    var sb = new StringBuilder();
 
-                sb.AppendLine(problem.Description);
-                sb.AppendLine();
+                    sb.AppendLine($"Problem {problem.Number}: {problem.Name}");
+                    sb.AppendLine();
 
-                sb.AppendLine($"\tSolution: {problem.Solve()}");
-                sb.AppendLine();
+                    sb.AppendLine(problem.Description);
+                    sb.AppendLine();
 
-                sb.AppendLine("-------------------------------------------------------------------------------------------");
+                    sb.AppendLine($"\tSolution: {solution}");
+                    sb.AppendLine();
 
-                Console.WriteLine(sb);
+                    sb.AppendLine("-------------------------------------------------------------------------------------------");
+
+                    Console.WriteLine(sb);
+                });
             }
         }
     }

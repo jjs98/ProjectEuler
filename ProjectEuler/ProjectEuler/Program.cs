@@ -1,6 +1,6 @@
 ﻿
 using ProjectEuler;
 
-var problems = new Problems();
-problems.SolveProblems();
+var problemSolver = new ProblemSolver();
+problemSolver.SolveProblems();
 Console.ReadKey();

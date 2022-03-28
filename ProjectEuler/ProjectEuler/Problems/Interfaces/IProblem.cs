@@ -1,8 +1,8 @@
-﻿namespace ProjectEuler
+﻿namespace ProjectEuler.Problems.Interfaces
 {
     internal interface IProblem
     {
-        public int Number { get; }
+        public string Number { get; }
         public string Name { get; }
         public string Description { get; }
         public string Solve();
