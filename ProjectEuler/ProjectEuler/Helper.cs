@@ -40,5 +40,9 @@
             return true;
         }
 
+        public static bool IsPythagoreanTriplet(int a, int b, int c)
+        {
+            return Math.Pow(a, 2) + Math.Pow(b, 2) == Math.Pow(c, 2);
+        }
     }
 }
