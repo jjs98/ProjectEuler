@@ -4,7 +4,7 @@ using System.ComponentModel.Composition;
 namespace ProjectEuler.Problems
 {
     [Export(typeof(IProblem))]
-    internal class Problem8 : Problem
+    internal class Problem008 : Problem
     {
         public override string Name => "Largest product in a series";
 

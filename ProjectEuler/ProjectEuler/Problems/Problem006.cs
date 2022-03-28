@@ -4,7 +4,7 @@ using System.ComponentModel.Composition;
 namespace ProjectEuler.Problems
 {
     [Export(typeof(IProblem))]
-    internal class Problem6 : Problem
+    internal class Problem006 : Problem
     {
         public override string Name => "Sum square difference";
 

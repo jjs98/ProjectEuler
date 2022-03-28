@@ -4,7 +4,7 @@ using System.ComponentModel.Composition;
 namespace ProjectEuler.Problems
 {
     [Export(typeof(IProblem))]
-    internal class Problem5 : Problem
+    internal class Problem005 : Problem
     {
         public override string Name => "Smallest multiple";
 

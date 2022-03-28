@@ -4,7 +4,7 @@ using System.ComponentModel.Composition;
 namespace ProjectEuler.Problems
 {
     [Export(typeof(IProblem))]
-    internal class Problem4 : Problem
+    internal class Problem004 : Problem
     {
         public override string Name => "Largest palindrome product";
 

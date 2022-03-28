@@ -4,7 +4,7 @@ using System.ComponentModel.Composition;
 namespace ProjectEuler.Problems
 {
     [Export(typeof(IProblem))]
-    internal class Problem7 : Problem
+    internal class Problem007 : Problem
     {
         public override string Name => "10001st prime";
 

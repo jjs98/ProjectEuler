@@ -4,7 +4,7 @@ using System.ComponentModel.Composition;
 namespace ProjectEuler.Problems
 {
     [Export(typeof(IProblem))]
-    internal class Problem10 : Problem
+    internal class Problem010 : Problem
     {
         public override string Name => "Summation of primes";
 

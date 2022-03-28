@@ -4,7 +4,7 @@ using System.ComponentModel.Composition;
 namespace ProjectEuler.Problems
 {
     [Export(typeof(IProblem))]
-    internal class Problem2 : Problem
+    internal class Problem002 : Problem
     {
         public override string Name => "Even Fibonacci numbers";
 

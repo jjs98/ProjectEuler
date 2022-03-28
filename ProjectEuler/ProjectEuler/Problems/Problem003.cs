@@ -4,7 +4,7 @@ using System.ComponentModel.Composition;
 namespace ProjectEuler.Problems
 {
     [Export(typeof(IProblem))]
-    internal class Problem3 : Problem
+    internal class Problem003 : Problem
     {
         public override string Name => "Largest prime factor";
 

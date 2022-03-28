@@ -4,7 +4,7 @@ using System.ComponentModel.Composition;
 namespace ProjectEuler.Problems
 {
     [Export(typeof(IProblem))]
-    internal class Problem1 : Problem
+    internal class Problem001 : Problem
     {
         public override string Name => "Multiples of 3 or 5";
 

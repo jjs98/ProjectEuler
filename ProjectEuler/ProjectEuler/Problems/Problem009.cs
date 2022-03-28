@@ -4,7 +4,7 @@ using System.ComponentModel.Composition;
 namespace ProjectEuler.Problems
 {
     [Export(typeof(IProblem))]
-    internal class Problem9 : Problem
+    internal class Problem009 : Problem
     {
         public override string Name => "Special Pythagorean triplet";
 
