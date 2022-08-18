@@ -40,6 +40,17 @@
             return true;
         }
 
+        public static bool IsPrime(int number)
+        {
+            if (number > 1)
+            {
+                return Enumerable.Range(1, number).Where(x => number % x == 0)
+                                 .SequenceEqual(new[] { 1, number });
+            }
+
+            return false;
+        }
+
         public static bool IsPythagoreanTriplet(int a, int b, int c)
         {
             return Math.Pow(a, 2) + Math.Pow(b, 2) == Math.Pow(c, 2);
