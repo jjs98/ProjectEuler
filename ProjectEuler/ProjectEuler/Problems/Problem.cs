@@ -12,6 +12,7 @@ namespace ProjectEuler.Problems
                 return name.Replace("Problem", string.Empty);
             }
         }
+
         public abstract string Name { get; }
 
         public abstract string Description { get; }

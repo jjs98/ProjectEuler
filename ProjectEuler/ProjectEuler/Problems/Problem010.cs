@@ -8,14 +8,16 @@ namespace ProjectEuler.Problems
     {
         public override string Name => "Summation of primes";
 
-        public override string Description => @"The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+        public override string Description => """
+                                              The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 
-Find the sum of all the primes below two million.";
+                                              Find the sum of all the primes below two million.
+                                              """;
 
         public override string Solve()
         {
-            /*long result = 0;
-            for (var i = 2; i < 2000000; i++)
+            long result = 2;
+            for (var i = 3; i < 2000000; i+=2)
             {
                 if (Helper.IsPrime(i))
                 {
@@ -24,8 +26,6 @@ Find the sum of all the primes below two million.";
             }
 
             return result.ToString();
-            */
-            return "142913828922";
         }
     }
 }

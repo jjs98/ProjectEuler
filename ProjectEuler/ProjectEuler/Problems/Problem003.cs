@@ -8,9 +8,11 @@ namespace ProjectEuler.Problems
     {
         public override string Name => "Largest prime factor";
 
-        public override string Description => @"The prime factors of 13195 are 5, 7, 13 and 29.
+        public override string Description => """
+                                              The prime factors of 13195 are 5, 7, 13 and 29.
 
-What is the largest prime factor of the number 600851475143 ?";
+                                              What is the largest prime factor of the number 600851475143 ?
+                                              """;
 
         public override string Solve()
         {
@@ -19,7 +21,7 @@ What is the largest prime factor of the number 600851475143 ?";
             bool continueSearch = true;
             while (continueSearch)
             {
-                result = Helper.DevideByPrimeNumber(nummberToCheck);
+                result = DevideByPrimeNumber(nummberToCheck);
                 if (Helper.IsPrime(result))
                 {
                     continueSearch = false;
@@ -31,6 +33,20 @@ What is the largest prime factor of the number 600851475143 ?";
             }
 
             return result.ToString();
+        }
+
+        private static long DevideByPrimeNumber(long number)
+        {
+            var prime = 2;
+            while (number % prime != 0)
+            {
+                do
+                {
+                    prime++;
+                }
+                while (!Helper.IsPrime(prime));
+            }
+            return number / prime;
         }
     }
 }
