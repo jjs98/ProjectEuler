@@ -1,6 +1,7 @@
 ﻿using ProjectEuler.Problems.Interfaces;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using System.Diagnostics;
 using System.Text;
 
 namespace ProjectEuler
@@ -11,7 +12,7 @@ namespace ProjectEuler
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0044:Add readonly modifier", Justification = "Needs to be set in CompositionContainer")]
         private List<IProblem>? problems = null;
 
-        public async void SolveProblems()
+        public async Task SolveProblems()
         {
             var catalog = new DirectoryCatalog(".");
             var container = new CompositionContainer(catalog);
@@ -24,8 +25,11 @@ namespace ProjectEuler
             {
                 await Task.Run(() =>
                 {
+                    var sw = Stopwatch.StartNew();
+                    sw.Start();
                     var solution = problem.Solve();
-
+                    sw.Stop();
+                    
                     var sb = new StringBuilder();
 
                     sb.AppendLine($"Problem {problem.Number}: {problem.Name}");
@@ -34,7 +38,11 @@ namespace ProjectEuler
                     sb.AppendLine(problem.Description);
                     sb.AppendLine();
 
-                    sb.AppendLine($"\tSolution: {solution}");
+                    sb.AppendLine($"Elapsed time for solving: {sw.Elapsed}");
+                    sb.AppendLine();
+                    sb.AppendLine();
+
+                    sb.AppendLine($"Solution: {solution}");
                     sb.AppendLine();
 
                     sb.AppendLine("-------------------------------------------------------------------------------------------");

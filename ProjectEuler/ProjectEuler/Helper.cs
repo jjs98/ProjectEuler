@@ -1,57 +1,28 @@
-﻿namespace ProjectEuler
+﻿using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("ProjectEuler.UnitTests")]
+namespace ProjectEuler
 {
-    public class Helper
+    internal static class Helper
     {
-        public static bool IsPalindrome(int number)
+        internal static bool IsPalindrome(int number)
         {
             var numberAsString = number.ToString();
             return numberAsString.SequenceEqual(numberAsString.Reverse());
         }
 
-        public static long DevideByPrimeNumber(long number)
+        internal static bool IsPrime(long number)
         {
-            var prime = 2;
-            while (number % prime != 0)
+            if (number <= 1) return false;
+            if (number == 2) return true;
+            for (long i = 3; i <= Math.Sqrt(number); i += 2)
             {
-                do
-                {
-                    prime++;
-                }
-                while (!IsPrime(prime));
+                if (number % i == 0) return false;
             }
-            return number / prime;
-        }
-
-        public static bool IsPrime(long number)
-        {
-            if (number == 2)
-                return true;
-            if (number <= 1 || number % 2 == 0)
-                return false;
-
-            var boundary = (int)Math.Floor(Math.Sqrt(number));
-
-            for (int i = 3; i <= boundary; i += 2)
-            {
-                if (number % i == 0)
-                    return false;
-            }
-
             return true;
         }
 
-        public static bool IsPrime(int number)
-        {
-            if (number > 1)
-            {
-                return Enumerable.Range(1, number).Where(x => number % x == 0)
-                                 .SequenceEqual(new[] { 1, number });
-            }
-
-            return false;
-        }
-
-        public static bool IsPythagoreanTriplet(int a, int b, int c)
+        internal static bool IsPythagoreanTriplet(int a, int b, int c)
         {
             return Math.Pow(a, 2) + Math.Pow(b, 2) == Math.Pow(c, 2);
         }

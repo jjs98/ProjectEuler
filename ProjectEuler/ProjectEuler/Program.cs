@@ -1,5 +1,5 @@
 ﻿using ProjectEuler;
 
 var problemSolver = new ProblemSolver();
-problemSolver.SolveProblems();
+await problemSolver.SolveProblems();
 Console.ReadKey();
