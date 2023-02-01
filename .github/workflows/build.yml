@@ -25,3 +25,14 @@ jobs:
         run: dotnet build ./src/ProjectEuler.UnitTests/ProjectEuler.UnitTests.csproj --configuration Release --no-restore
       - name: Run Tests
         run: dotnet test ./src/ProjectEuler.UnitTests/ProjectEuler.UnitTests.csproj --no-restore
+  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Unit Tests for ProjectEuler
+        uses: zyborg/dotnet-tests-report@v1
+        with:
+          project_path: ./src/ProjectEuler.UnitTests
+          report_name: project_euler_tests
+          report_title: ProjectEuler Tests
+          github_token: ${{ secrets.GITHUB_TOKEN }}
