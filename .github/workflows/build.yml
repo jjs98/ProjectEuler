@@ -20,9 +20,11 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Install dependencies
-        run: dotnet restore
+      - name: Dotnet Restore
+        run: dotnet restore ./../../src/ProjectEuler/ProjectEuler.csproj
       - name: Build
-        run: dotnet build --configuration Release --no-restore
-      - name: Test
-        run: dotnet test --no-restore --verbosity normal
+        run: dotnet build ./../../src/ProjectEuler/ProjectEuler.csproj --configuration Release --no-restore
+      - name: Build Tests
+        run: dotnet build ./../../src/ProjectEuler.UnitTests/ProjectEuler.UnitTests.csproj --configuration Release --no-restore
+      - name: Run Tests
+        run: dotnet test ./../../src/ProjectEuler.UnitTests/ProjectEuler.UnitTests.csproj --no-restore --verbosity normal
