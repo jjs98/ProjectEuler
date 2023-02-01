@@ -21,10 +21,10 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Dotnet Restore
-        run: dotnet restore ./../../src/ProjectEuler/ProjectEuler.csproj
+        run: dotnet restore ./src/ProjectEuler/ProjectEuler.csproj
       - name: Build
-        run: dotnet build ./../../src/ProjectEuler/ProjectEuler.csproj --configuration Release --no-restore
+        run: dotnet build ./src/ProjectEuler/ProjectEuler.csproj --configuration Release --no-restore
       - name: Build Tests
-        run: dotnet build ./../../src/ProjectEuler.UnitTests/ProjectEuler.UnitTests.csproj --configuration Release --no-restore
+        run: dotnet build ./src/ProjectEuler.UnitTests/ProjectEuler.UnitTests.csproj --configuration Release --no-restore
       - name: Run Tests
-        run: dotnet test ./../../src/ProjectEuler.UnitTests/ProjectEuler.UnitTests.csproj --no-restore --verbosity normal
+        run: dotnet test ./src/ProjectEuler.UnitTests/ProjectEuler.UnitTests.csproj --no-restore --verbosity normal
