@@ -29,7 +29,19 @@ namespace ProjectEuler.Problems
 
         public override string Solve()
         {
-            return "Not solved yet";
+            int divisorCount;
+            int number = 1;
+            int counter = 2;
+            while (true)
+            {
+                divisorCount = Helper.GetDivisorsCount(number);
+                if (divisorCount > 500)
+                    break;
+
+                number += counter;
+                counter++;
+            }
+            return number.ToString();
         }
     }
 }

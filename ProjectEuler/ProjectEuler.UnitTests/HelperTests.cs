@@ -41,6 +41,18 @@ namespace ProjectEuler.UnitTests
             AssertIsPythagoreanTriplet(15, 16, 17, false);
         }
 
+        [TestMethod]
+        public void GetDivisorsCount_Few()
+        {
+            AssertGetDivisorsCount(6, 4);
+        }
+
+        [TestMethod]
+        public void GetDivisorsCount_Many()
+        {
+            AssertGetDivisorsCount(28, 6);
+        }
+
         private static void AssertIsPalindrome(int number, bool expectedResult)
         {
             bool actualResult = Helper.IsPalindrome(number);
@@ -57,6 +69,12 @@ namespace ProjectEuler.UnitTests
         {
             bool actualResult = Helper.IsPythagoreanTriplet(a, b, c);
             Assert.AreEqual(actualResult, expectedResult);
+        }
+
+        private static void AssertGetDivisorsCount(int number, int expectedCount)
+        {
+            int actualCount = Helper.GetDivisorsCount(number);
+            Assert.AreEqual(actualCount, expectedCount);
         }
     }
 }
