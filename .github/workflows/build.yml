@@ -29,4 +29,4 @@ jobs:
       - name: Build Tests
         run: dotnet build ./src/ProjectEuler.UnitTests/ProjectEuler.UnitTests.csproj --configuration Release --no-restore
       - name: Run Tests
-        run: dotnet test ./src/ProjectEuler.UnitTests/ProjectEuler.UnitTests.csproj --no-restore --verbosity normal
+        run: dotnet test ./src/ProjectEuler.UnitTests/ProjectEuler.UnitTests.csproj --no-restore
