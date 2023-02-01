@@ -33,4 +33,8 @@ jobs:
           project_path: ./src/ProjectEuler.UnitTests
           report_name: project_euler_tests
           report_title: ProjectEuler Tests
+          set_check_status_from_test_outcome: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          gist_name: project_euler_tests.md
+          gist_badge_label: 'ProjectEuler: %Counters_passed%/%Counters_total%'
+          gist_token: ${{ secrets.GIST_TOKEN }}
