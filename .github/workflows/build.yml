@@ -32,7 +32,7 @@ jobs:
         id: test-results
         if: always()
         with:
-          trx_files: "test-results.trx"
+          trx_files: "**/TestResults/**/*.trx"
       
       - name: Set badge color
         shell: bash
