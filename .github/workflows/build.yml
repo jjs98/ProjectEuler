@@ -33,7 +33,10 @@ jobs:
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
         shell: bash
         run: |
-          mkdir .sonar/scanner
+          mkdir .sonar
+          cd .sonar
+          mkdir scanner
+          cd ..
           dotnet tool update dotnet-sonarscanner --tool-path ./.sonar/scanner
       - name: Build and analyze
         env:
