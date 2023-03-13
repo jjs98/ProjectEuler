@@ -1,3 +1,6 @@
+[![Build Status](https://img.shields.io/github/actions/workflow/status/jjs98/ProjectEuler/build.yml?branch=main&style=for-the-badge)](https://github.com/jjs98/ProjectEuler/actions/workflows/build.yml)
+[![Sonar Quality Gate](https://img.shields.io/sonar/quality_gate/jjs98_jjsware?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge)](https://sonarcloud.io/summary/new_code?id=jjs98_jjsware)
+
 # Project Euler
 
 Here are my solutions to the problems from [ProjectEuler](https://projecteuler.net/about). This is just an console application with a class for each problem. I added a stopwatch to the algorithms so you can see how fast, or more likely slow, my solutions are.
