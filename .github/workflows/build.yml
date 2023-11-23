@@ -55,11 +55,20 @@ jobs:
       - name: Run Tests
         run: dotnet test ./src/ProjectEuler.UnitTests/ProjectEuler.UnitTests.csproj --no-restore --logger "trx;logfilename=test-results.trx" --collect:"XPlat Code Coverage"
 
-      - name: Publish CodeCoverage
-        uses: PublishCodeCoverageResults@1
+      #- name: Publish CodeCoverage
+      #  uses: PublishCodeCoverageResults@1
+      #  with:
+      #    codeCoverageTool: Cobertura
+      #    summaryFileLocation: "**/TestResults/**/coverage.cobertura.xml"
+
+      - name: Codecov
+        uses: codecov/codecov-action@v1.0.13
         with:
-          codeCoverageTool: Cobertura
-          summaryFileLocation: "**/TestResults/**/coverage.cobertura.xml"
+          #token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          file: "**/TestResults/**/coverage.cobertura.xml"
+          flags: unittests # optional
+          name: codecov # optional
+          fail_ci_if_error: false # optional (default = false)
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
