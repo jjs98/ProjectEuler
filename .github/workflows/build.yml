@@ -53,7 +53,13 @@ jobs:
       - name: Build Tests
         run: dotnet build ./src/ProjectEuler.UnitTests/ProjectEuler.UnitTests.csproj --configuration Release --no-restore
       - name: Run Tests
-        run: dotnet test ./src/ProjectEuler.UnitTests/ProjectEuler.UnitTests.csproj --no-restore --logger "trx;logfilename=test-results.trx"
+        run: dotnet test ./src/ProjectEuler.UnitTests/ProjectEuler.UnitTests.csproj --no-restore --logger "trx;logfilename=test-results.trx" --collect:"XPlat Code Coverage"
+
+      - name: Publish CodeCoverage
+        uses: PublishCodeCoverageResults@1
+        with:
+          codeCoverageTool: Cobertura
+          summaryFileLocation: "**/TestResults/**/coverage.cobertura.xml"
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
